@@ -1,0 +1,213 @@
+	O que é o JSON:
+
+-JSON = JavaScript Object Notation
+
+-Um formato de representação de dados
+
+-Mais simples que XML, que é utilizado para fins parecidos
+
+-Utiliza o formato de "chave" e "valor"
+
+-É leve para ser enviado por requisições
+
+-Muito utilizado para API e também arquivos de configuração
+
+
+
+	Tipos de dados:
+
+-O JSON aceita diversos tipos de dados
+-Strings: "Hello World"
+-Números: 1 ou 14.4
+-Arrays: [1,4,2,5,6]
+-Objetos: {"nome":"Cunha"}
+-Dados nulos: null
+
+
+
+Vamos abrir o VScode e:
+-criar 1 ficheiro: index.html
+-criar 1 ficheiro: teste.json
+-criar 1 ficheiro: script.js
+
+Abrimos o ficheiro "teste.json" e:
+-criar um json: 
+	começa com {} e para as chaves precisamos de "", para acrescentarmos mais chaves, utlizamos a virgula (,).
+
+
+{
+    "nome" : "Cunha",
+    "idade" : 25,
+    "esta_empregado" : false,
+    "detalhes_empregos" : {
+        "profissao_procurada" : "programação",
+        "o_que_sabes" : "Javascript + html + css + react; Python + django; SQL; GIT; ",
+        "vontade_de_aprender" : true,
+        "empresas_desejadas" : "A que trouxer felicidade"
+    },
+    "hobies" : ["Estudar","Programar","Jogar","Aprender","Exercicio fisico"]
+}
+
+
+Tambem podemos enviar um Array de objetos, que seria um Array de json com mais items:
+Para fazermos um array externo, temos que: [{array1},{array2}]
+
+[
+	{
+    		"nome" : "Cunha",
+    		"idade" : 25,
+    		"esta_empregado" : false,
+	    	"detalhes_empregos" : {
+        	"profissao_procurada" : "programação",
+            "o_que_sabes" : "Javascript + html + css + react; Python + django; SQL; GIT; ",
+	      "vontade_de_aprender" : true,
+	      "empresas_desejadas" : "A que trouxer felicidade"
+	},
+	    "hobies" : ["Estudar","Programar","Jogar","Aprender","Exercicio fisico"]
+	},
+	{
+    		"nome" : "Cunha",
+   		 "idade" : 25,
+   		 "esta_empregado" : false,
+   		 "detalhes_empregos" : {
+      	 "profissao_procurada" : "programação",
+      	 "o_que_sabes" : "Javascript + html + css + react; Python + django; SQL; GIT; ",
+        	 "vontade_de_aprender" : true,
+      	 "empresas_desejadas" : "A que trouxer felicidade"
+    		 "hobies" : ["Estudar","Programar","Jogar","Aprender","Exercicio fisico"]
+	}
+]
+
+
+
+
+
+Agora vamos ao ficheiro html: "index.html" e:
+-Criamos html:5 com ligação ao nosso ficheiro de JS: "script.js"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <script src="script.js"></script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+Agora vamos ao nosso ficheiro js: "script.js" e:
+-Criamos um array de objetos que receba o nosso json
+
+
+const obj = [
+    {
+        "nome" : "Cunha",
+        "idade" : 25,
+        "esta_empregado" : false,
+        "detalhes_empregos" : {
+            "profissao_procurada" : "programação",
+            "o_que_sabes" : "Javascript + html + css + react; Python + django; SQL; GIT; ",
+            "vontade_de_aprender" : true,
+            "empresas_desejadas" : "A que trouxer felicidade"
+        },
+        "hobies" : ["Estudar","Programar","Jogar","Aprender","Exercicio fisico"]
+    }
+]
+
+Isto no JavaScript não é um JSON, é um OBJETO
+
+Vamos acrescentar mais 2 items:
+
+const obj = [
+    {
+        "nome" : "Cunha",
+        "idade" : 25,
+        "esta_empregado" : false,
+        "detalhes_empregos" : {
+            "profissao_procurada" : "programação",
+            "o_que_sabes" : "Javascript + html + css + react; Python + django; SQL; GIT; ",
+            "vontade_de_aprender" : true,
+            "empresas_desejadas" : "A que trouxer felicidade"
+        },
+        "hobies" : ["Estudar","Programar","Jogar","Aprender","Exercicio fisico"]
+    },{
+        "nome" : "Bea",
+        "idade" : 21,
+        "esta_empregado" : true,
+        "detalhes_empregos" : {
+            "profissao_procurada" : "Front-Office manager",
+            "o_que_sabes" : "Tudo - programação",
+            "vontade_de_aprender" : true,
+            "empresas_desejadas" : "A que trouxer felicidade"
+        },
+        "hobies" : ["Jogar","Aprender","Ler","nadar"]
+    },{
+        "nome" : "Ana",
+        "idade" : 28,
+        "esta_empregado" : false,
+        "detalhes_empregos" : {
+            "profissao_procurada" : null,
+            "o_que_sabes" : "jogar",
+            "vontade_de_aprender" : false,
+            "empresas_desejadas" : null
+        },
+        "hobies" : ["Jogar"] 
+    }
+]
+
+console.log(obj)
+Com o nodejs carregamos f8 para vermos OU no browser dá-mos inspect e abrimos la a consola para ver como aparece o nosso (obj).
+por ex:
+Aqui vai mostrar as chaves sem aspas.
+nome: "Cunha"
+idade: 25
+
+
+
+Agora, precisamos de enviar isto para a nossa API, mas não podemos enviar assim
+O tipo de dado que podemos enviar é um JSON e isto é um objeto JavaScript
+
+Como é que conseguimos transformar um objeto JavaScript ou um array de objetos em JSON válido?
+// JSON
+// Converter objeto para JSON
+const jsonData = JSON.stringify(obj)
+
+Agora se abrirmos com o nodejs (f8) ou no browser com o inspect
+Vai mostrar as chaves com aspas, porque já é um JSON.
+"nome":"Cunha"
+"idade": 25
+
+Isto é como se fosse um Post, estámos a querer inserir no sistema
+
+
+
+// Converter JSON para OBJETO
+const objData = JSON.parse(jsonData);
+console.log(objData)
+
+Agora se abrirmos com o nodejs (f8) ou no browser com o inspect
+Vai mostrar as chaves sem aspas, porque volta a ser um OBJETO.
+nome: "Cunha"
+idade: 25
+
+Isto é como se fosse um Get, estámos a receber do sistema
+
+
+metodo map para objeto: .map((x.chave) => {comando})	->	Metodo para percorer Arrays de objetos para mostrar os dados na tela
+
+objData.map((pessoa) => {
+	console.log(pessoa.nome)
+})
+
+Agora se abrirmos com o nodejs (f8) ou no browser com o inspect, mostra:
+
+Cunha
+Bea
+Ana
+
+

@@ -1,0 +1,13 @@
+{
+    "nome" : "Cunha",
+    "idade" : 25,
+    "esta_empregado" : false,
+    "detalhes_empregos" : {
+        "profissao_procurada" : "programação",
+        "o_que_sabes" : "Javascript + html + css + react; Python + django; SQL; GIT; ",
+        "vontade_de_aprender" : true,
+        "empresas_desejadas" : "A que trouxer felicidade"
+    },
+    "hobies" : ["Estudar","Programar","Jogar","Aprender","Exercicio fisico"]
+}
+
